@@ -1,4 +1,4 @@
-const { sumTokensExport } = require('@defillama/sdk');
+const { sumTokensExport } = require('../helper/unwrapLPs');
 
 const OSAK = {
   ethereum:  '0xa21af1050f7b26e0cff45ee51548254c41ed6b5c',
@@ -10,7 +10,7 @@ const OSAK = {
   avalanche: '0x96E1056a8814De39c8c3Cd0176042d6ceCD807d7',
 };
 
-// LP Tokens 
+// LP tokens
 const lpTokens = {
   base:      '0x086903c53057c96582b3075e3c0b1b570574a8fe',
   arbitrum:  '0xE67c34d25D9CA2Fc41824184309C6Fce9B0558c5',
@@ -33,7 +33,7 @@ module.exports = {
   polygon:   { tvl: sumTokensExport({ owners: [OSAK.polygon],   tokens: [OSAK.polygon] }) },
   avalanche: { tvl: sumTokensExport({ owners: [OSAK.avalanche], tokens: [OSAK.avalanche] }) },
 
-  // Staked LP Farms (pool2) 
+  // Staked LP Farms → pool2 (Osak LP tokens)
   base:      { pool2: sumTokensExport({ owners: [lpTokens.base],      tokens: [lpTokens.base] }) },
   arbitrum:  { pool2: sumTokensExport({ owners: [lpTokens.arbitrum],  tokens: [lpTokens.arbitrum] }) },
   bsc:       { pool2: sumTokensExport({ owners: [lpTokens.bsc],       tokens: [lpTokens.bsc] }) },
